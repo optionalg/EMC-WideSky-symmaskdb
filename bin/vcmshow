@@ -3,7 +3,7 @@ use EMC::WideSky::symmaskdb;
 
 $db=new EMC::WideSky::symmaskdb();
 
-if ($ARGV[0] eq "-h" || $ARGV[0] eq "--help") { print "Usage: $0 [fa faregexp] [dev devregexp] [host hostregexp] [hba hbaregexp]\n"; exit; }
+if ($ARGV[0] eq "-h" || $ARGV[0] eq "--help") { print "Usage: $0 [fa faregexp] [dev devregexp] [host hostregexp] [hba hbaregexp] [file inputfile]\n"; exit; }
 if ($#ARGV>=1 && ($#ARGV+1) % 2 == 0 ) { $db->parse_symmaskdb(@ARGV); }
   else {$db->parse_symmaskdb();}
 
@@ -18,7 +18,3 @@ for $dev (sort keys %{$db}) {
   }
   print "\n";
 }
-
-__END__
-
-=head1 pokus

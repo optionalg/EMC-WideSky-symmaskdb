@@ -5,3 +5,4 @@ MANIFEST
 symmaskdb.pm
 Util.pm
 t/symmaskdb.t
+sample.xml

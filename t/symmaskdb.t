@@ -3,7 +3,7 @@ print "1..2\n";
 use EMC::WideSky::symmaskdb;
 
 $db=new EMC::WideSky::symmaskdb();
-$db->parse_symmaskdb();
+$db->parse_symmaskdb("input"=>"sample.xml");
 
 unless ($db) { print "not "; }
 print "ok 1\n";

@@ -3,7 +3,7 @@ package EMC::WideSky::symmaskdb;
 our @ISA       = qw(Exporter);
 our @EXPORT    = qw(parse_symmaskdb new);    # Symbols to be exported by default
 our @EXPORT_OK = qw();  # Symbols to be exported on request
-our $VERSION   = 0.1;
+our $VERSION   = 0.2;
 
 use XML::Parser;
 use EMC::WideSky::Util;
@@ -23,7 +23,11 @@ sub parse_symmaskdb (@) {
                                        End   => \&handle_end,
                                        Char  => \&handle_char});
   $fa_restrict=$r{fa}; $host_restrict=$r{host}; $hba_restrict=$r{hba}; $dev_restrict=$r{dev}; $wwn_restrict=$r{wwn};
-  open(DB,'symmaskdb list database -out xml |');
+  if ($r{input}) {
+    open(DB,$r{input}) || die "Can't open symmaskdb\n";
+  } else {
+    open(DB,'symmaskdb list database -out xml |') || die "Can't open symmaskdb\n";
+  }
   $p->parse(*DB);
   sub handle_start {
     my $p=shift @_;
