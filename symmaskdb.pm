@@ -3,7 +3,7 @@ package EMC::WideSky::symmaskdb;
 our @ISA       = qw(Exporter);
 our @EXPORT    = qw(parse_symmaskdb new);    # Symbols to be exported by default
 our @EXPORT_OK = qw();  # Symbols to be exported on request
-our $VERSION   = 0.2;
+our $VERSION   = 0.21;
 
 use XML::Parser;
 use EMC::WideSky::Util;

@@ -8,7 +8,7 @@ our $VERSION   = 0.1;
 sub dec2hex {
   my $dec=shift @_;
 
-  my $out=join("",reverse unpack(H2H2, pack(L,$dec)));
+  my $out=join("",reverse unpack(H2H2, chr($dec % 256).chr(int($dec/256)) ));  
   $out=~ tr[a-z][A-Z];
   return $out;
 }
